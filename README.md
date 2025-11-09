@@ -1,22 +1,4 @@
 # Data_Analysis_Tool
-This Data Analysis Tool searches for list of the substrings and replace then with Required Substrings
-
-import os
-substring_to_search=['XXXX','YYYY']
-read_filename='Readfile.txt'
-write_filename='Writefile.txt'
-
-table=[]
-with open(read_filename,'r') as f:
-    for line in f:
-	     if "--" not in line:
-              list1=line.strip().split()
-              for item in substring_to_search:
-                  for target in list1:
-                      if item.lower() in target.lower():
-                          table.append(target.strip("`);"))
-dedup_list=list(set(table))
-dedup_list.sort()
-with open(write_filename,'w') as f:
-   for i in dedup_list:
-       f.write(i + "\n")
+#This Data Analysis Tool searches for list of the substrings and replace then with Required Substrings
+# This code 1) read the file line by line 2)  remove the comments starts with --  3) diving the line into multiple target substrings 4) trim each targetsubstrings removing ",`   5) Compare the source substring and target substring making them same case 
+# 6) remove the duplicates from the found matched substring
